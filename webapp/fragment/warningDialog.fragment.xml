@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Warning" icon="sap-icon://alert" titleAlignment="Center" closeOnNavigation="true" draggable="true" contentWidth="30rem"
+		resizable="true" verticalScrolling="true">
+		<content>
+			<Text text="Item with ID: "/>
+			<Text text="{oTableModel>/dialogBoxId}"/>
+			<Text text=" already exist in the cart. Please enter the quantity you want to add"/>
+			<StepInput id="dialogStepInput" value="1" min="0" max="100" step="1" enabled="true" editable="true" validationMode="FocusOut"
+				change="onEdit"/>
+		</content>
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button text="Save" type="Emphasized" press="onSave"/>
+			<Button text="cancel" type="Reject" press="onCancel"/>
+		</Toolbar>
+	</Dialog>
+</core:FragmentDefinition>

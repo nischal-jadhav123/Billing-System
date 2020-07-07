@@ -1,0 +1,119 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.incture.ZBILLING_SYSTEM",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"OData.svc": {
+				"uri": "/Northwind_Demo/V2/(S(k4turpq0yhxorxifcqjkusgz))/OData/OData.svc/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.incture.ZBILLING_SYSTEM.view.View1",
+			"type": "XML",
+			"async": true,
+			"id": "View1"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.incture.ZBILLING_SYSTEM.i18n.i18n"
+				}
+			},
+			"oDataGlobalModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				}
+			},
+			"oNWModel": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "OData.svc",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.incture.ZBILLING_SYSTEM.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteView1",
+				"pattern": "RouteView1",
+				"target": [
+					"TargetView1"
+				]
+			}],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "View1",
+					"viewName": "View1"
+				}
+			}
+		}
+	}
+}

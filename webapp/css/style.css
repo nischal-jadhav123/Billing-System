@@ -1,0 +1,19 @@
+/* Enter your custom styles here */
+
+.header {
+    background-color: Green;
+}
+
+.sapMIBar.sapMHeader-CTX {
+    color: #32363a;
+    background-color: #77a5a5;
+}
+
+.sapMIBar.sapMFooter-CTX {
+    background-color: #77a5a5 !important;
+    border-top: 1px solid #d9d9d9;
+    color: #32363a;
+}
+.sapMIBar-CTX.sapMFooter-CTX .sapMLabel {
+    color: #ffffff !important;
+}

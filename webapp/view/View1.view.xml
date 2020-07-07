@@ -1,0 +1,74 @@
+<mvc:View controllerName="com.incture.ZBILLING_SYSTEM.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<customHeader class="header">
+						<Bar>
+							<contentLeft>
+								<Button icon="sap-icon://menu" class="sapUiTinyMarginEnd"/>
+								<Text text="Products"/>
+							</contentLeft>
+							<contentMiddle>
+								<Text text="Billing System"/>
+							</contentMiddle>
+							<contentRight>
+								<SearchField search="onSearch" width="100%"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Table id="idProductsTable" items="{oTableModel>/sSelectedItems}">
+							<infoToolbar>
+								<OverflowToolbar>
+									<Label text="Wide range of available products"/>
+								</OverflowToolbar>
+								<Toolbar>
+									<ToolbarSpacer/>
+									<Button text="Clear All" press="onClear"></Button>
+								</Toolbar>
+								<!--</OverflowToolbar>-->
+							</infoToolbar>
+							<columns>
+								<Column width="12em">
+									<Text text="Product ID"/>
+								</Column>
+								<Column>
+									<Text text="Product Name"/>
+								</Column>
+								<Column>
+									<Text text=" Unit Price"/>
+								</Column>
+								<Column>
+									<Text text="Quantity"/>
+								</Column>
+								<Column>
+									<Text text="Amount"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells >
+										<Text text="{oTableModel>ID}"/>
+										<Text text="{oTableModel>Name}"/>
+										<Text text="{oTableModel>Price}"/>
+										<StepInput id="stepInput" value="{oTableModel>Value}" min="0" max="100" width="50%" step="1" valueState="{valueState}" enabled="true"
+											editable="true" validationMode="FocusOut" change="onChange"/>
+										<Input id="inputAmount" value="{oTableModel>Amount}" editable="false"></Input>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Label id ="totalAmountText" text="Total Amount"/>
+							<Input id="totalAmount" value="{oTableModel>/sTotalAmount}" editable="false" width="100px"></Input>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
